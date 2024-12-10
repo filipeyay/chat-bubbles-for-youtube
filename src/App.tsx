@@ -5,7 +5,6 @@ import Bubble from './bubble'
 import BubbleInput from './bubble-input'
 import Chat from './chat'
 import useMessages from './use-messages'
-import { SketchPicker } from 'react-color'
 
 function App() {
   const [messages, addMessage] = useMessages([])
@@ -74,28 +73,6 @@ function App() {
           strokeColour={strokeColour}
         />
       </Chat>
-
-      <div className="picker">
-        <p>Fill</p>
-        <SketchPicker color={fillColour} onChange={handleFillColourChange} />
-        <p>Stroke</p>
-        <SketchPicker
-          color={strokeColour}
-          onChange={handleStrokeColourChange}
-        />
-        <p>Bubble Timeout (Miliseconds)</p>
-        <div>
-          <button onClick={handleBubbleTimeoutDecrease}>-</button>
-          <input
-            type="number"
-            value={bubbleTimeout}
-            onChange={({ target: { value } }) =>
-              setBubbleTimeout(Number(value))
-            }
-          />
-          <button onClick={handleBubbleTimeoutIncrease}>+</button>
-        </div>
-      </div>
     </div>
   )
 }
